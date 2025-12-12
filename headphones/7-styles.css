@@ -1,0 +1,97 @@
+:root {
+  --primary-color: #FF6565;
+  --max-width: 1000px;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 20px;
+}
+
+.what-we-do,
+.our-results {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.services,
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.service,
+.stat {
+  flex: 1 1 250px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.service:hover,
+.stat:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service span,
+.pentagon {
+  font-size: 48px;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pentagon {
+  width: 0;
+  border-style: solid;
+  border-width: 0 50px 86.6px 50px;
+  border-color: transparent transparent var(--primary-color) transparent;
+  position: relative;
+  margin: 0 auto 20px;
+}
+
+.pentagon::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 0;
+  border-style: solid;
+  border-width: 50px 100px 0 100px;
+  border-color: var(--primary-color) transparent transparent transparent;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 480px) {
+  .services,
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+}
